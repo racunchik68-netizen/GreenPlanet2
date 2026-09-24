@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+  <header class="header">
+    <div class="contaener">
+      <div class="header_iner">
+        <div class="header_logo">GreenPlanet</div>
+           <div class="header_liner">
+              <nav class="nav_menu">
+<div class="dropdown">
+    <a class="nav_linc" href="#">Главная</a>
+    <!-- Выпадающее меню 1-го уровня -->
+    <ul class="dropdown-menu">
+        <!--<li><a href="#">Товары</a></li> -->
+        <!-- Пункт со вложенным подменю -->
+        <li class="has-submenu">
+            <a href="#">Товары &raquo;</a>
+            <!-- Выпадающее меню 2-го уровня (Подменю) -->
+            <ul class="submenu">
+                <li><a href="photos.html">Кустарник</a></li>
+                <li><a href="#">Кустарник декоративный</a></li>
+                <li><a href="#">Большемеры хвойные</a></li>
+                <li><a href="#">Большемеры лиственные</a></li>
+                <li><a href="#">Туи</a></li>
+                <li><a href="#">Можевельники</a></li>
+                <li><a href="#">Ожидаем</a></li>
+            </ul>
+        <li class="has-submenu">
+            <a href="#">Услиги &raquo;</a>
+            <!-- Выпадающее меню 2-го уровня (Подменю) -->
+            <ul class="submenu">
+                <li><a href="photos.html">Посадка вашего материала</a></li>
+                <li><a href="#">Обработка растений</a></li>
+                <li><a href="#">Обрезка растений</a></li>
+                <li><a href="#">Выкопка растений</a></li>
+                <li><a href="#">Сопровождение сделки</a></li>
+                <li><a href="#">Полив растений</a></li>
+                <li><a href="#">Подкормка растений</a></li>
+            </ul>            
+        </li>
+</div>        
+<div class="dropdown">       
+       <a class="nav_linc" href="#">Контакты</a> 
+    <!-- Выпадающее меню 1-го уровня -->
+    <ul class="dropdown-menu">
+        <li><a href="#">Mssedg</a></li>
+        <!-- Пункт со вложенным подменю -->
+        <li class="has-submenu">
+            <a href="#">Email &raquo;</a>
+            <!-- Выпадающее меню 2-го уровня (Подменю) -->
+            <ul class="submenu">
+                <li><a href="photos.html">Туи</a></li>
+                <li><a href="#">Можевельники</a></li>
+                <li><a href="#">Хвойники</a></li>
+            </ul>
+        </li>       
+    
+</div>
+
+                 <div class="dropdown">
+                     <a class="nav_linc" href="#">Каталог</a>
+                       <!-- Само выпадающее меню -->
+                         <ul class="dropdown-menu">
+                           <li><a href="#">Туи</a></li>
+                            <li><a href="#">Можевельники</a></li>
+                              <li><a href="#">Хвойники</a></li>
+                                </ul>
+                                   </div>             
+                 <div class="dropdown">
+                     <a class="nav_linc" href="#">Корзина</a>
+                       <!-- Само выпадающее меню -->
+                         <ul class="dropdown-menu">
+                           <li><a href="#">Товары</a></li>
+                            <li><a href="#">В доставке</a></li>
+                              <li><a href="#">Ожидают оплаты</a></li>
+                                </ul>
+                                   </div>
+                                                             
+                          <a href="#" class="btn" id="openModalBtn">Регистрация</a>
+                            </nav>
+                              </div>
+                                </div>
+                                  </div>
+                                    </header>
+<div class="intro">
+    
+    <!-- НОВЫЙ БЛОК ПРИВЕТСТВИЯ -->
+    <div class="welcome-text">
+        Welcome Too
+    </div>
+
+    <!-- Дальше идет ваш существующий код (например, .intro_title или .container) -->
+    <div class="intro_iner">
+        <h1 class="intro_title">GreenPlanet</h1>
+        <!-- ... остальной контент ... -->
+    </div>
+</div>    
+<!-- БЛОК СЛАЙДЕРА (КАРУСЕЛИ) -->
+<div class="slider-container">
+    <div class="slider">
+        <!-- Слайд 1 -->
+        <div class="slide active">
+            <img src="images/img2.2.jpg" alt="Слайд 1">
+            <div class="slide-caption">Инновационный дизайн</div>
+        </div>
+        <!-- Слайд 2 -->
+        <div class="slide">
+            <img src="images/img2.2.jpg" alt="Слайд 2">
+            <div class="slide-caption">Профессиональная разработка</div>
+        </div>
+        <!-- Слайд 3 -->
+        <div class="slide">
+            <img src="images/img2.2.jpg" alt="Слайд 3">
+            <div class="slide-caption">Качественный результат</div>
+        </div>
+    </div>
+
+    <!-- Кнопки управления -->
+    <button class="slider-btn prev-btn" id="prevSlideBtn">&lt;</button>
+    <button class="slider-btn next-btn" id="nextSlideBtn">&gt;</button>
+
+    <!-- Точки-индикаторы -->
+    <div class="slider-dots" id="sliderDots">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+    </div>
+</div>
+      
+<!-- МОДАЛЬНОЕ ОКНО РЕГИСТРАЦИИ -->
+<div class="modal-overlay" id="registrationModal">
+    <div class="registration-box">
+        <span class="close-btn" id="closeModalBtn">&times;</span>
+        
+        <h2>Регистрация</h2>
+        <form id="registrationForm">
+            <div class="user-box">
+                <input type="text" id="regUsername" required="">
+                <label>Имя пользователя</label>
+            </div>
+            <div class="user-box">
+                <input type="email" id="regEmail" required="">
+                <label>E-mail</label>
+            </div>
+            <div class="user-box">
+                <input type="password" id="regPassword" required="">
+                <label>Пароль</label>
+            </div>
+                        <!-- ДОБАВЬТЕ ЭТУ СТРОКУ: -->
+            <div class="forgot-pass-box">
+                <a href="#" id="forgotPasswordLink" class="forgot-link">Забыли пароль?</a>
+            </div>
+            <!-- Стало (Замените на этот блок): -->
+            <div class="form-buttons">
+                <button type="submit" class="btn btn-submit btn-oval">Создать аккаунт</button>
+                <button type="button" id="switchToLogin" class="btn btn-login btn-oval">Вход</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    const openBtn = document.getElementById('openModalBtn');
+    const closeBtn = document.getElementById('closeModalBtn');
+    const modal = document.getElementById('registrationModal');
+    const regForm = document.getElementById('registrationForm');
+
+    // Функция закрытия окна
+    function closeModal() {
+        modal.classList.remove('active');
+        if(regForm) regForm.reset(); 
+    }
+
+    // Открытие окна (строго проверяем, чтобы не открывалось дважды)
+    if (openBtn) {
+        openBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation(); // Защита: предотвращает двойное срабатывание клика
+            modal.classList.add('active');
+        });
+    }
+
+    // Закрытие по крестику
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            closeModal();
+        });
+    }
+    
+    // Закрытие при клике на темную область вокруг окна
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            // Окно закроется ТОЛЬКО если кликнули на темный фон, а не на саму форму
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    }
+
+    // Обработка формы
+    if (regForm) {
+        regForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('regUsername').value.trim();
+            const email = document.getElementById('regEmail').value.trim();
+            const password = document.getElementById('regPassword').value;
+
+            if (password.length < 6) {
+                alert('Ваш пароль слишком короткий! Придумайте более 6 символов.');
+                return;
+            }
+
+            const newUser = { username, email, password, date: new Date().toLocaleString() };
+            localStorage.setItem(email, JSON.stringify(newUser));
+
+            alert(`Поздравляем, ${username}! Вы успешно зарегистрированы.`);
+            closeModal();
+        });
+    }
+</script>
+    // ---- ЛОГИКА СЛАЙДЕРА (КАРУСЕЛИ) ----
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.getElementById('prevSlideBtn');
+    const nextBtn = document.getElementById('nextSlideBtn');
+    
+    let currentSlide = 0;
+    let sliderTimer = null;
+
+    // Функция переключения на конкретный слайд
+    function showSlide(index) {
+        // Убираем активные классы со старого слайда и точки
+        slides[currentSlide].classList.remove('active');
+        dots[currentSlide].classList.remove('active');
+
+        // Обновляем текущий индекс
+        currentSlide = index;
+
+        // Если вышли за границы массивов — зацикливаем
+        if (currentSlide >= slides.length) currentSlide = 0;
+        if (currentSlide < 0) currentSlide = slides.length - 1;
+
+        // Добавляем активные классы новому слайду и точке
+        slides[currentSlide].classList.add('active');
+        dots[currentSlide].classList.add('active');
+    }
+
+    // Обработчики кнопок Назад и Вперед
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+            resetAutoplay(); // Сбрасываем таймер при ручном клике
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+            resetAutoplay();
+        });
+    }
+
+    // Клик по точкам
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            showSlide(index);
+            resetAutoplay();
+        });
+    });
+
+    // Функция автопрокрутки (каждые 4 секунды)
+    function startAutoplay() {
+        sliderTimer = setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 4000);
+    }
+
+    function resetAutoplay() {
+        clearInterval(sliderTimer);
+        startAutoplay();
+    }
+
+    // Запускаем автоматическую смену картинок при старте сайта
+    if (slides.length > 0) {
+        startAutoplay();
+    }
+
+</body>
+</html>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

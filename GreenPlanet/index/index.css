@@ -1,0 +1,794 @@
+/*body*/
+body{
+    margin: 0;
+    font-family: Montserrat,sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+}
+*,
+*:before,
+*:after{
+  box-sizing:border-box;
+}
+h1,h2,h3,h4,h5,h6{
+    margin: 0;
+}
+/*contaener*/
+.contaener{
+    width: 100%;
+    max-width:1200px ;
+    margin: 0 auto;
+    color: aliceblue;
+      }
+/*intro*/    
+.intro{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* ГЛАВНОЕ: выравнивает весь ваш текст и кнопки строго по центру экрана */
+  width: 100%;
+  min-height: 100vh;
+  background: url(images/img3.jpg) center no-repeat;
+  background-size: cover;
+  padding: 0 15px; /* Добавляет боковые отступы, чтобы текст не лип к краям на мобильных */
+}
+/*intro_title*/
+.intro_title{
+    margin-bottom: 20px;
+    font-family: "Myriad Pro",cursive;
+    font-size: 100px;
+    font-weight: 800px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1;
+
+}
+/*intro_iner*/
+.intro_iner{
+    color: #f7f9f7;
+    width: 100%;
+    max-width: 1080px;
+    text-transform: uppercase;
+    text-align: center;
+}
+/*intro_suptitle*/
+.intro_suptitle{
+    font-family: "Kaushan Script",cursive;
+    font-size: 82px;
+    color: #fff;
+    text-align: center;
+}
+/*header*/
+.header{/*обращение к классу header* вся шапка*/
+    padding-top: 30px;/*отступ от верха*/
+    width: 100%;/*ширина блока <div class="header">*/
+    position: absolute;/*абсолютная позиция*/
+    top: 0px;/*растояние от верха*/
+    left: 0px;/*растояние слева*/
+    right: 0px;/*растояние справа*/
+    z-index: 1000;/**/
+}
+/*header_iner*/
+.header_iner{/*обращение к классу header_iner */
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+/*header_logo*/
+ .header_logo{
+    font-family: "Myriad Pro",cursive;
+    font-size: 60px;/*высота блока логотип*/
+    font-weight: 700px;/*ширина блока логотип*/
+    color:#f7f5f5;/*цвет блока логотип*/  
+ }   
+/*nav*/
+.nav_menu{
+    font-size: 14px;
+    text-transform: uppercase;
+}
+/*nav_linc*/
+.nav_linc{
+    display: inline-block;
+    vertical-align: top;
+    margin: 20px;
+    color: #fff; 
+    position: relative;
+    text-decoration: none;/*убрать подчеркивание текста*/
+    
+    transition: opacity 0.2s linear;
+    }
+ /*nav_linc*/
+.nav_linc:after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    display: none;
+    background-color: blue;
+    position: absolute;/*абсолютная позиция*/
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    transition: opacity 0.2s linear;
+}   
+.nav_linc:hover{
+   color:blue ;
+}
+.nav_linc:hover:after{
+   display: block;
+  
+}
+/*btn кнопка*/
+.btn{
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px 15px;
+    border: 2px solid #fff;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;/*убрать подчеркивание текста*/
+    text-transform: uppercase;/*текст в кнопке большими буквами*/
+    color: #03f82c;
+    transition: "background" 0.2s linear,color 2s linear ;
+}
+.btn:hover{
+    background-color: green;
+    color: #fff;
+    
+}
+/* ---- МЕНЮ РЕГИСТРАЦИИ ---- */
+
+/* Контейнер формы с эффектом размытого стекла */
+.registration-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    margin: 40px auto;
+    background: rgba(0, 0, 0, 0.6); /* Полупрозрачный черный фон */
+    backdrop-filter: blur(10px);    /* Размытие фона за формой */
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+}
+.registration-box h2 {
+    margin-bottom: 30px;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 24px;
+}
+
+/* Стилизация контейнеров для полей ввода */
+.registration-box .user-box {
+    position: relative;
+    margin-bottom: 30px;
+}
+/* Красивые скрытые инпуты без рамок */
+.registration-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-bottom: 2px solid #fff;
+    outline: none;
+    background: transparent;
+    transition: 0.3s ease;
+}
+/* Стили для всплывающих подсказок (placeholder) */
+.registration-box .user-box label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+/* Анимация: когда инпут в фокусе или заполнен, текст улетает наверх */
+.registration-box .user-box input:focus ~ label,
+.registration-box .user-box input:valid ~ label {
+    top: -15px;
+    left: 0;
+    color: #3b82f6; /* Меняет цвет на синий при заполнении */
+    font-size: 12px;
+}
+.registration-box .user-box input:focus {
+    border-bottom-color: #3b82f6;
+}
+
+/* Дополнительные настройки для вашей кнопки .btn внутри формы */
+.btn-submit {
+    display: block;
+    width: 100%;
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: center;
+}
+/* ---- СТИЛИ ДЛЯ МОДАЛЬНОГО ОКНА ---- */
+
+/* 1. Задний темный фон на весь экран */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75); /* Затемнение */
+    z-index: 2000;                  /* Поверх всей страницы */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    opacity: 0;                     /* Изначально невидимо */
+    pointer-events: none;           /* Клик сквозь него */
+    transition: opacity 0.3s ease;
+}
+
+/* Этот класс добавит JS при клике, и окно покажется */
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* 2. Само белое/стеклянное окошко формы */
+.registration-box {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    background: rgba(20, 20, 20, 0.85); /* Полупрозрачный фон */
+    backdrop-filter: blur(15px);        /* Размытие заднего плана */
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+    
+    transform: scale(0.8);              /* Эффект вылета */
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .registration-box {
+    transform: scale(1);
+}
+
+/* 3. Кнопка закрытия (крестик) */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+.close-btn:hover {
+    color: #22c55e; /* Зеленеет при наведении */
+}
+
+/* 4. Заголовок и поля внутри формы */
+.registration-box h2 {
+    margin-bottom: 30px;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 24px;
+}
+.registration-box .user-box {
+    position: relative;
+    margin-bottom: 30px;
+}
+.registration-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-bottom: 2px solid #fff;
+    outline: none;
+    background: transparent;
+    transition: 0.3s ease;
+}
+.registration-box .user-box label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+/* Анимация поднятия текста вверх при клике в поле ввода */
+.registration-box .user-box input:focus ~ label,
+.registration-box .user-box input:valid ~ label {
+    top: -15px;
+    left: 0;
+    color: #22c55e;
+    font-size: 12px;
+}
+.registration-box .user-box input:focus {
+    border-bottom-color: #22c55e !important;
+}
+
+/* Изменение кнопки внутри формы */
+.btn-submit {
+    display: block;
+    width: 100%;
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: center;
+}
+.btn-submit:active {
+    transform: scale(0.98);
+}
+/* ---- ВЫПАДАЮЩЕЕ МЕНЮ ---- */
+
+/* 1. Контейнер-родитель */
+.dropdown {
+    position: relative; /* Нужно, чтобы меню позиционировалось строго под ссылкой */
+    display: inline-block;
+}
+
+/* 2. Сам выпадающий список (скрытый по умолчанию) */
+.dropdown-menu {
+    position: absolute;   /* Изолирует меню, чтобы оно не раздвигало шапку сайта */
+    top: 100%;            /* Появляется ровно под ссылкой */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px); /* Центрирует меню по оси X и сдвигает чуть вниз */
+    
+    min-width: 160px;
+    background: rgba(118, 48, 210, 0.9); /* Полупрозрачный темный фон */
+    backdrop-filter: blur(10px);        /* Эффект стекла */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 10px 0;
+    margin: 0;
+    list-style: none;     /* Убирает маркеры-точки списка */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    
+    /* Анимация скрытия/появления */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 1500;
+}
+
+/* 3. Показываем меню при наведении мышки на контейнер .dropdown */
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0); /* Плавно поднимается на свое место */
+}
+
+/* 4. Стилизация элементов списка (ссылок внутри меню) */
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: none; /* Убирает капс, если он не нужен в подменю */
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Эффект при наведении на пункт выпадающего меню */
+.dropdown-menu li a:hover {
+    background-color: rgba(251, 10, 10, 0.1); /* Легкая подсветка фона */
+    color: #b8f315;                             /* Текст зеленеет (в цвет вашей темы) */
+}
+/* ---- ВЛОЖЕННОЕ ПОДМЕНЮ (2-Й УРОВЕНЬ) ---- */
+
+/* Контейнер для пункта, у которого есть подменю */
+.dropdown-menu .has-submenu {
+    position: relative; /* Чтобы вложенное меню позиционировалось относительно этого пункта */
+}
+
+/* Сам список 2-го уровня (изначально скрыт) */
+.dropdown-menu .submenu {
+    position: absolute;
+    top: -10px;           /* Выравниваем примерно по верхней границе родительского пункта */
+    left: 100%;           /* Выталкиваем меню полностью вправо */
+    
+    min-width: 160px;
+    background: rgba(20, 20, 20, 0.95); /* Чуть плотнее фон, чтобы не просвечивал */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 10px 0;
+    margin: 0;
+    list-style: none;
+    box-shadow: 5px 8px 16px rgba(0, 0, 0, 0.4);
+    
+    /* Анимация скрытия/появления (сдвиг слева направо) */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px); 
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 1600; /* Должен быть чуть выше первого меню */
+}
+
+/* Показываем подменю 2-го уровня при наведении на li.has-submenu */
+.dropdown-menu .has-submenu:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0); /* Встает ровно на место */
+}
+
+/* Стилизация ссылок внутри подменю 2-го уровня */
+.dropdown-menu .submenu li a {
+    display: block;
+    padding: 8px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px; /* Сделаем шрифт подменю капельку меньше для иерархии */
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-menu .submenu li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #22c55e; /* Подсветка зеленым при наведении */
+}
+/* ---- ОБНОВЛЕННЫЕ ОВАЛЬНЫЕ КНОПКИ ФОРМЫ ---- */
+
+/* Контейнер для кнопок, чтобы они встали в один ряд с небольшим отступом */
+.form-buttons {
+    display: flex;
+    gap: 15px;          /* Расстояние между кнопками */
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* Модификатор для превращения кнопок в овальные */
+.btn-oval {
+    border-radius: 50px !important; /* Делает углы полностью круглыми (овальными) */
+    padding: 12px 25px !important;  /* Увеличиваем внутренние отступы для красивой формы */
+    font-size: 13px;
+    text-align: center;
+    white-space: nowrap;            /* Запрещает тексту переноситься на новую строку */
+    flex: 1;                        /* Распределяет кнопки поровну по ширине */
+}
+
+/* Стили для новой кнопки "Вход" (сделаем ее слегка отличной по дизайну, например, полупрозрачной) */
+.btn-login {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s linear, border-color 0.2s linear;
+}
+
+.btn-login:hover {
+    background: #3b82f6;            /* При наведении кнопка Вход становится синей */
+    border-color: #3b82f6;
+    color: #fff;
+}
+
+/* Корректируем существующую кнопку "Создать аккаунт" */
+.btn-submit {
+    cursor: pointer;
+    font-family: inherit;
+}
+/* ---- ОБНОВЛЕННЫЕ СТИЛИ ПРИВЕТСТВИЯ ---- */
+.welcome-text {
+    font-family: 'Montserrat', sans-serif;
+    
+    /* ИСПРАВЛЕННЫЕ ПАРАМЕТРЫ ДЛЯ УВЕЛИЧЕНИЯ: */
+    font-size: 35px;          /* Было 24px. Теперь текст стал значительно крупнее */
+    font-weight: 500;         /* Сделали буквы более жирными и плотными */
+    
+    color: #f7faf8;           /* Зеленый цвет под стиль кнопок */
+    text-transform: uppercase;
+    letter-spacing: 4px;      /* Немного увеличили расстояние между буквами для читаемости */
+    text-align: center;       
+    margin-bottom: 25px;      /* Отступ до следующего заголовка */
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6); /* Чуть усилили тень, так как буквы стали больше */
+}
+/* Также обновим медиа-запрос в самом низу CSS, чтобы на телефонах текст тоже пропорционально увеличился */
+@media (max-width: 768px) {
+    .welcome-text {
+        font-size: 24px;      /* Было 16px. На смартфонах теперь тоже будет смотреться аккуратно, но крупно */
+        letter-spacing: 3px;  
+    }
+}
+/* ---- СТИЛИ ДЛЯ СТРАНИЦЫ ГАЛЕРЕИ ---- */
+
+/* Оформление фона самой страницы */
+.gallery-body {
+    background: #141414;
+    color: #fff;
+    padding: 40px 20px;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* Шапка галереи */
+.gallery-header {
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.gallery-header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Адаптивная CSS Grid сетка для фото */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Фото сами выстраиваются по рядам */
+    gap: 25px; /* Расстояние между картинками */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Карточка для фото (скрывает вылезающие края при увеличении) */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    aspect-ratio: 4 / 3; /* Делает все карточки одинаковыми по пропорциям */
+}
+
+/* Стилизация картинок */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Картинка заполняет карточку без искажений */
+    display: block;
+    transition: transform 0.4s ease; /* Плавное увеличение */
+}
+
+/* Эффект увеличения при наведении мышки */
+.gallery-item:hover img {
+    transform: scale(1.08); /* Картинка слегка увеличивается внутрь рамки */
+}
+/* ---- СТИЛИ ДЛЯ ССЫЛКИ "ЗАБЫЛИ ПАРОЛЬ" ---- */
+.forgot-pass-box {
+    text-align: right;    /* Сдвигаем ссылку к правому краю, как это принято в интерфейсах */
+    margin-top: -15px;    /* Слегка прижимаем к полю пароля */
+    margin-bottom: 25px;  /* Делаем отступ до овальных кнопок */
+}
+
+.forgot-link {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6); /* Изначально полупрозрачный белый */
+    text-decoration: none;           /* Убираем стандартное подчеркивание */
+    transition: color 0.2s ease;
+}
+
+.forgot-link:hover {
+    color: #22c55e;                  /* При наведении зеленеет под тему ваших кнопок */
+    text-decoration: underline;      /* Появляется аккуратное подчеркивание */
+}
+/* ---- СТИЛИ ДЛЯ ИКОНОК И ПОЛНОЭКРАННОГО ПРОСМОТРА ---- */
+
+/* Изменяем сетку: делаем колонки меньше, чтобы фотографии выглядели как иконки */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Маленькие ячейки по 120px */
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Контейнер-иконка */
+.gallery-item-icon {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    aspect-ratio: 1 / 1; /* Жестко делает иконки идеально квадратными */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.gallery-item-icon:hover {
+    transform: scale(1.05); /* Легкое покачивание вверх */
+    border-color: #22c55e;   /* Зеленая рамка при наведении */
+}
+
+.gallery-item-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Картинка аккуратно обрезается под квадратную иконку */
+    display: block;
+}
+
+/* Фон полноэкранного режима (изначально спрятан) */
+.full-view-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.95); /* Очень темный фон */
+    z-index: 3000;                      /* Поверх абсолютно всего */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Показываем большое окно при добавлении класса через JS */
+.full-view-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Большая развернутая картинка */
+.full-view-overlay img {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain; /* Картинка масштабируется, не вылезая за границы */
+    border-radius: 6px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+    
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.full-view-overlay.visible img {
+    transform: scale(1); /* Плавное увеличение до нормального размера при открытии */
+}
+
+/* Крестик закрытия */
+.close-full-view {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+.close-full-view:hover {
+    color: #22c55e;
+}
+/* ---- СТИЛИ ДЛЯ СЛАЙДЕРА (КАРУСЕЛИ) ---- */
+.slider-container {
+    position: relative;
+    max-width: 1200px;
+    height: 500px; /* Высота слайдера на больших экранах */
+    margin: 60px auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Все слайды по умолчанию скрыты и прозрачны */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+}
+
+/* Активный слайд показывается плавно */
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Картинка заполняет область без искажений */
+    display: block;
+}
+
+/* Красивые подписи поверх картинок */
+.slide-caption {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 6px;
+    backdrop-filter: blur(5px);
+    letter-spacing: 1px;
+}
+
+/* Овальные стрелочки Вперед/Назад */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(34, 197, 94, 0.8); /* Зеленый в тон вашей темы */
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, scale 0.2s;
+    z-index: 10;
+}
+.slider-btn:hover {
+    background: rgb(21, 128, 61);
+    scale: 1.05;
+}
+.slider-btn:active {
+    scale: 0.95;
+}
+.prev-btn { left: 20px; }
+.next-btn { right: 20px; }
+
+/* Круглые точки внизу слайдера */
+.slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+.dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s, scale 0.3s;
+}
+.dot.active {
+    background: #22c55e; /* Активная точка становится зеленой */
+    scale: 1.2;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .slider-container {
+        height: 300px; /* Уменьшаем высоту карусели на смартфонах */
+        margin: 30px 15px;
+    }
+    .slide-caption {
+        font-size: 14px;
+        bottom: 20px;
+        left: 20px;
+        padding: 6px 12px;
+    }
+    .slider-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+}
+
+
